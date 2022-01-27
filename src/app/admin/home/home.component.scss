@@ -1,0 +1,113 @@
+.Thethem{
+    font-size: 20px;
+}
+.Nutthem{
+    font-size: 13px;
+}
+.HDSD{
+    color: #4ce14c;
+}
+.Trongthethem{
+    font-size: 5px;
+}
+.titlenho{
+    font-size: 15px;
+    font-style: italic;
+}
+.title{
+    font-size: 12px;
+  
+}
+.red{
+    color: red;
+}
+.chucanh{
+    font-size: 12px;
+}
+
+:host ::ng-deep .p-multiselect {
+    min-width: 15rem;
+}
+
+:host ::ng-deep .multiselect-custom-virtual-scroll .p-multiselect {
+    min-width: 20rem;
+}
+
+:host ::ng-deep .multiselect-custom {
+    .p-multiselect-label {
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        border:dark
+    }
+
+    .country-item-value {
+        padding: .25rem .5rem;
+        border-radius: 3px;
+        display: inline-flex;
+        margin-right: .5rem;
+        background-color: var(--primary-color);
+        color: var(--primary-color-text);
+
+        img.flag {
+            width: 17px;
+        }
+    }
+
+    .country-placeholder {
+        padding: 0.25rem;
+    }
+}
+.sizes {
+    .p-inputtext {
+        display: block;
+        margin-bottom: .5rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.bacps{
+    width: 224px;
+    height: 27px;
+}
+.tbdk{
+    width: 222px;
+    height: 27px;
+}
+.p-field * {
+    display: block;
+}
+
+.nuttime{
+    width: 128px;
+   
+}
+:host ::ng-deep .p-dropdown {
+    height: 27px;
+    width: 16vw;
+  }
+
+.dropdown-toggle::after {
+    display:none;
+}
+.dropdowntrai{
+    height: 27px;
+    width: 16vw;
+}
+
+.kca{
+    margin-left: 15px;
+}
+
+.btop{
+    margin-top: 5px;
+}
+:host ::ng-deep p-inputNumber {
+    height: 25px;
+    
+   .p-inputNumber-inputId {
+        width: 33px;
+    }
+}

@@ -1,0 +1,454 @@
+<div class="row" style="padding-top: 21px;margin-left: 10px;">
+    <div class="col-md-4">
+        <p style="font-weight: 700;font-size: 25px;">Đề Cương Kịch Bản</p>
+    </div>
+    <div style="text-align: right;" class="col-md-8">
+        <button type="button"><i class="fa fa-upload"></i></button>
+        <button type="button" style="margin-left: 7px;"><i class="fa fa-print"></i></button>
+        <button type="button" class="btn btn-primary Nutthem" style="margin-left: 7px;background-color:#0c469f">
+            <i class="fa fa-plus"></i>Đăng ký lịch đột xuất
+        </button>
+        <button type="button" class="btn btn-primary Nutthem"
+            style="margin-left: 7px;background-color:#0c469f;margin-right: 15px;" (click)="showDialog()">
+            <i class="fa fa-plus"></i>Đăng ký sản xuất
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link">
+                    <select class="form-select form-select-lg ">
+                        <option value="1">Đề tài đang được xử lý </option>
+                        <option value="2">Đã duyệt</option>
+                        <option value="3">Không duyệt </option>
+                    </select>
+                </a>
+            </li>
+        </div>
+        <div>
+            <button style="background-color: #ffffff; color: black;margin-top: 5px;" type="button"
+                class="btn btn-outline-secondary btn-lg">Chọn thể loại</button>
+        </div>
+    </div>
+    <div style="margin-top:7px;" class="col-md-6">
+        <div class="col-md-1">
+            <button type="button" style="margin-left: 198px; color: dodgerblue;"><i class="fa fa-refresh"></i></button>
+        </div>
+        <div style="text-align: right;" class="col-md-11">
+            <form>
+                <input style="width:231px" type="text" placeholder="Tìm kiếm... " name="search2">
+                <button type="submit"><i class="fa fa-search"></i></button>
+                <button type="submit"><i class="fa fa-list-ol"></i></button>
+                <button type="submit"><i class="fa fa-dedent (alias)"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th rowspan="2">TT</th>
+                <th rowspan="2">Trạng thái</th>
+                <th rowspan="2">Tên tin bài</th>
+                <th rowspan="2">Bậc đăng ký</th>
+                <th colspan="2">Thời gian đi</th>
+                <th colspan="2">Thời gian về</th>
+                <th rowspan="2">Nơi thực hiện</th>
+                <th rowspan="2">Phóng viên</th>
+                <th rowspan="2">Q/phim</th>
+                <th rowspan="2">Xe</th>
+                <th rowspan="2">L/Xe</th>
+                <th rowspan="2">KTV</th>
+                <th rowspan="2">Ghi chú</th>
+                <th rowspan="2">L/trú</th>
+            </tr>
+            <tr>
+                <th>Giờ đi</th>
+                <th>Ngày đi</th>
+                <th>Giờ về</th>
+                <th>Ngày về</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <th>Phòng chính trị</th>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- ////////////// -->
+
+<p-dialog [(visible)]="display" [style]="{width: '80vw',height:'130vw'}">
+    <p-header>
+        <div class="Thethem">Đăng ký sản xuất & Đề cương kịch bản</div>
+        <div class="HDSD"> Hướng dẫn sử dụng</div>
+    </p-header>
+    <div class="row Trongthethem">
+        <div class="col-md-6 title overflow-auto">
+            <p-header>
+                <div class="titlenho">Đề cương kịch bản</div>
+            </p-header>
+            <div>
+                <span class="red">(*)</span>Thể loại:<span class="chucanh">(Có thể chọn nhiều)</span>
+                <p-multiSelect [style]="{width: '35vw',height:'3vw'}" [options]="cities" [(ngModel)]="selectedCities"
+                    [virtualScroll]="true" class="multiselect-custom" optionLabel="name" optionValue="code"
+                    display="chip"></p-multiSelect>
+            </div>
+            <br>
+            <div>
+                <span class="red">(*)</span>Tên đề cương
+                <div class="p-field">
+                    <!-- <input [style]="{width: '35vw',height:'3vw'}" type="text" class="p-inputtext-lg"
+                        placeholder="Nhập tên đề tài" pInputText /> -->
+                    <textarea class="border border-dark" [style]="{width: '35vw',height:'3vw'}"
+                        pInputTextarea></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    Dự kiến phát sóng<span class="chucanh">(Có thể chọn nhiều)</span>
+                    <p-multiSelect [style]="{width: '16vw'}" [options]="dukien" [(ngModel)]="dukienphatsong"
+                        [virtualScroll]="true" class="multiselect-custom" optionLabel="name" optionValue="code"
+                        display="chip" placeholder="Click vào tôi để chọn dự kiến phát sóng"></p-multiSelect>
+                </div>
+                <div class="col-md-6">
+                    Thời gian dự kiến phát sóng
+                    <input class="border border-dark bacps" type="date">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    Dự kiến phỏng vấn:
+                    <textarea class="form-control border border-dark dropdowntrai"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <span class="red">(*)</span>Bậc phóng sự
+                    <select class=" bacps form-select border border-dark" aria-label="Default select example">
+                        <option selected></option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div>
+                Hình ảnh quan trọng cần có:
+                <textarea [style]="{width: '35vw',height:'2vw'}" class="form-control border border-dark"></textarea>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="red">(*)</span>Thời lượng:
+                    <p-inputMask [style]="{width: '16vw', height:'27px'}" mask="99-99" [(ngModel)]="val1"
+                        placeholder="mm:ss"></p-inputMask>
+                </div>
+                <div class="col-md-6">
+                    <div><span class="red">(*)</span>Thời gian hoàn thành</div>
+                    <div class="col-md-6 input-group ">
+                        <p-inputMask [style]="{width:'4vw', height:'27px'}" mask="99-99" [(ngModel)]="val2"
+                            placeholder="hh:mm"></p-inputMask>
+                        <!-- <span class="input-group-addon"><i class="fa fa-check"></i></span> -->
+                        <span class="input-group-text " id=""><i class="fa fa-check"></i></span>
+                        <input class="nuttime border border-dark" style="margin-left: 10px;" type="date">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div><span class="red">(*)</span>Tỉnh thành:</div>
+                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity1" placeholder="Chọn tỉnh thành"
+                        optionLabel="name" [showClear]="true"></p-dropdown>
+                </div>
+                <div class="col-md-6">
+                    <div><span class="red">(*)</span>Nơi thực hiện:</div>
+                    <input type="text" placeholder="Nhập nơi thực hiện" class="bacps form-control border border-dark"
+                        id="">
+                </div>
+            </div>
+            <br>
+            <div>
+                <div>
+                    <span>Nội Dung</span> Có thể đính kèm file hoặc viết nội dung, có thể paste từ word.
+                </div>
+                <div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary Nutthem"
+                            style="margin-left: 7px;background-color:#0c469f;margin-right: 15px;"
+                            (click)="showDialog()">
+                            <i class="fa fa-upload"></i>Tải tệp lên từ máy tính
+                        </button>
+                    </div>
+                    <div class="col-md-8">
+
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div style="width:35vw">
+                    <!-- <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor> -->
+                    <p-editor [(ngModel)]="text1" [style]="{'height':'160px'}"></p-editor>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 title overflow-auto">
+            <p-header>
+                <div class="titlenho">Đăng ký sản xuất</div>
+            </p-header>
+            <div>
+                <div class="col-md-6">
+                    <div><span class="red">(*)</span>Thời gian sản xuất từ</div>
+                    <div class="col-md-6 input-group ">
+                        <p-inputMask [style]="{width:'4vw', height:'27px'}" mask="99-99" [(ngModel)]="val2"
+                            placeholder="hh:mm"></p-inputMask>
+                        <!-- <span class="input-group-addon"><i class="fa fa-check"></i></span> -->
+                        <span class="input-group-text " id=""><i class="fa fa-check"></i></span>
+                        <input class="nuttime border border-dark" style="margin-left: 10px;" type="date">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div><span class="red">(*)</span>Thời gian sản xuất đến</div>
+                    <div class="col-md-6 input-group ">
+                        <p-inputMask [style]="{width:'4vw', height:'27px'}" mask="99-99" [(ngModel)]="val2"
+                            placeholder="hh:mm"></p-inputMask>
+                        <!-- <span class="input-group-addon"><i class="fa fa-check"></i></span> -->
+                        <span class="input-group-text " id=""><i class="fa fa-check"></i></span>
+                        <input class="nuttime border border-dark" style="margin-left: 10px;" type="date">
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+            <div>
+                <div class="col-md-6">
+                    <div>
+                        <div class="col-md-2" style="margin-left:-12px">Xe</div>
+                        <div class="col-md-10" style="text-align: right;">
+                            <button type="button" style="height: 22px;" class="btn btn-primary"><i
+                                    class="fa fa-minus"></i></button>
+                            <input style="width:25px;height: 23px;" type="text" placeholder="0">
+                            <button type="button" style="height: 22px;" class="btn btn-primary"><i
+                                    class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div>
+                        <input style="width: 222px;" type="text" placeholder="Ghi chú">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <div class="col-md-6" style="margin-left:-12px">Máy quay</div>
+                        <div class="col-md-6" style="text-align: right;">
+                            <button type="button" style="height: 22px;" class="btn btn-primary"><i
+                                    class="fa fa-minus"></i></button>
+                            <input style="width:25px;height: 23px;" type="text" placeholder="0">
+                            <button type="button" style="height: 22px;" class="btn btn-primary"><i
+                                    class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div>
+                        <input style="width: 222px;" type="text" placeholder="Ghi chú">
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+            <div>
+                <div class="col-md-6">
+                    <div>
+                        <div class="col-md-6" style="margin-left:-12px">Quay phim</div>
+                        <div class="col-md-6" style=" overflow: hidden">
+                            <button type="button" style="height: 22px;" class="btn btn-primary"><i class="fa fa-minus"
+                                    (click)="changeCount(-1)"></i></button>
+                            <input style="width:25px;height: 23px;" type="text" placeholder="0" [(ngModel)]="count">
+                            <button type="button" style="height: 22px;" class="btn btn-primary"><i class="fa fa-plus"
+                                    (click)="changeCount(1)"></i></button>
+                            <!-- <p-inputNumber [(ngModel)]="value18" [showButtons]="true" buttonLayout="horizontal"
+                                inputId="" spinnerMode="" [step]="1"
+                                decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success"
+                                incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" >
+                            </p-inputNumber> -->
+                        </div>
+                    </div>
+                    <div>
+                        <input style="width: 222px;" type="text" placeholder="Ghi chú">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <div class="col-md-6" style="margin-left:-12px">Kỹ thuật viên</div>
+                        <div class="col-md-6" style="text-align: right;">
+                            <button style="border-radius: 20px;" type="button" class="btn btn-primary"><i
+                                    class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+            <div>
+                <div class="col-md-6">
+                    <div>Lưu trữ</div>
+                    <div style="display: inline-flex;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Có
+                            </label>
+                        </div>
+                        <div class="form-check kca">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                                checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Không
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    Phương tiện dự kiến<span class="chucanh">(Có thể chọn nhiều)</span>
+                    <p-multiSelect [style]="{width: '16vw'}" [options]="dukien" [(ngModel)]="dukienphatsong"
+                        [virtualScroll]="true" class="multiselect-custom" optionLabel="name" optionValue="code"
+                        display="chip" placeholder="Click vào tôi để chọn phương tiện dự kiến"></p-multiSelect>
+                </div>
+            </div>
+            <br><br><br><br>
+            <div>
+                <div>
+                    <div class="col-md-6">
+                        Thiết bị đi kèm<span class="chucanh">(Có thể chọn nhiều)</span>
+                        <p-multiSelect [style]="{width: '16vw'}" [options]="dukien" [(ngModel)]="dukienphatsong"
+                            [virtualScroll]="true" class="multiselect-custom" optionLabel="name" optionValue="code"
+                            display="chip"></p-multiSelect>
+                    </div>
+                </div>
+                <div class="col-md-12 btop">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-active">
+                                <th scope="col">STT</th>
+                                <th scope="col">Tên thiết bị</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Ghi chú</th>
+                                <th scope="col">Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td><input type="number" min="0"></td>
+                                <td>@mdo</td>
+                                <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="col-md-6">
+                        Ekip tham gia sản xuất:
+                        <select class=" bacps form-select border border-dark" aria-label="Default select example">
+                            <option selected></option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12 btop">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-active">
+                                <th scope="col">STT</th>
+                                <th scope="col">Chức danh</th>
+                                <th scope="col">Thành viên</th>
+                                <th scope="col">Chọn người</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>
+                                    <p-multiSelect [style]="{}" [options]="chucdanh" [(ngModel)]="selectedChucdanh"
+                                        placeholder="click để chọn" [virtualScroll]="true" class="multiselect-custom"
+                                        optionLabel="name" optionValue="code" display="chip">
+                                    </p-multiSelect>
+                                </td>
+                                <td>Otto</td>
+                                <td>
+                                    <p-multiSelect [style]="{}" [options]="employee" [(ngModel)]="selectedEmployee"
+                                        placeholder="click để chọn" [virtualScroll]="true" class="multiselect-custom"
+                                        optionLabel="name" optionValue="code" display="chip">
+                                    </p-multiSelect>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+            </div>
+
+            <div class="col-md-12">
+                Ghi chú
+                <div class="p-field">
+                    <!-- <input [style]="{width: '35vw',height:'3vw'}" type="text" class="p-inputtext-lg"
+                        placeholder="Nhập tên đề tài" pInputText /> -->
+                    <textarea class="border border-dark" [style]="{width: '35vw',height:'3vw'}" pInputTextarea
+                        placeholder="Nơi nhập ý kiến trao đổi, nội dung sẽ được lưu lại qua mỗi lần chuyển của quy trình"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary Nutthem" style="background-color:#2e7dc7;"
+                (click)="showDialog()">
+                Kiểm tra trùng
+            </button>
+        </div>
+
+        <div class="col-md-10" style="display: inline-flex; ">
+            <div style="margin-left: 658px;">
+                <button type="button" class="btn btn-warning Nutthem" (click)="showDialog()">
+                    Hủy
+                </button>
+                <button type="button" class="btn btn-outline-primary Nutthem" (click)="showDialog()">
+                    Lưu và đóng
+                </button>
+                <button type="button" class="btn btn-primary Nutthem" (click)="showDialog()">
+                    Trình duyệt
+                </button>
+            </div>
+        </div>
+    </p-footer>
+</p-dialog>
